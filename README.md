@@ -57,15 +57,9 @@ VisionArtificialUCV/
 │   │   └── camara.js    ← Lógica completa de detección por cámara
 │   └── assets/
 │       ├── logo_ucv.png
-│       └── icons/
 │
-├── dataset/
-│   ├── imagenes/        ← Imágenes de prueba
-│   ├── etiquetas/       ← Anotaciones YOLO (.txt)
-│   └── README_DATASET.md
 │
 ├── docs/
-│   ├── manual_usuario.pdf
 │   └── informe_final.docx
 │
 ├── requirements.txt
