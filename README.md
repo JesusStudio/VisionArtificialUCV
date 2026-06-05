@@ -94,7 +94,7 @@ VisionArtificialUCV/
 
 ```bash
 # Opción A: clonar con git
-git clone <url-del-repositorio>
+git clone https://github.com/JesusStudio/VisionArtificialUCV.git
 cd VisionArtificialUCV
 
 # Opción B: descomprimir el ZIP y entrar a la carpeta
@@ -106,12 +106,6 @@ cd VisionArtificialUCV
 ```bash
 python -m venv venv
 
-# Windows
-venv\Scripts\activate
-
-# macOS / Linux
-source venv/bin/activate
-```
 
 ### 3. Instalar dependencias
 
