@@ -140,17 +140,6 @@ Deberías ver:
 > La primera vez que se detecte una imagen, YOLOv8 descargará automáticamente
 > el modelo `yolov8n.pt` (~6 MB) en la carpeta `backend/models/`.
 
-### 5. Abrir el frontend
-
-Con el servidor corriendo, abre en tu navegador:
-
-```
-frontend/index.html
-```
-
-O haz doble clic sobre el archivo `index.html` en tu explorador de archivos.
-
----
 
 ## 🔌 API Endpoints
 
@@ -162,58 +151,6 @@ O haz doble clic sobre el archivo `index.html` en tu explorador de archivos.
 | GET    | `/api/session/summary`  | Resumen acumulado de la sesión           |
 | POST   | `/api/session/reset`    | Limpiar historial de sesión              |
 
-### Ejemplo — detección por imagen (cURL)
-
-```bash
-curl -X POST http://localhost:5000/api/detect/image \
-  -F "image=@foto.jpg" \
-  -F "confidence=25"
-```
-
-### Respuesta
-
-```json
-{
-  "success": true,
-  "total": 3,
-  "detections": [
-    { "label": "person", "confidence": 91.4, "bbox": {"x1":50,"y1":30,"x2":200,"y2":400} },
-    { "label": "laptop", "confidence": 78.2, "bbox": {"x1":210,"y1":150,"x2":420,"y2":310} },
-    { "label": "cup",    "confidence": 55.7, "bbox": {"x1":430,"y1":280,"x2":500,"y2":370} }
-  ],
-  "image_b64": "<imagen anotada en base64>",
-  "metrics": {
-    "total_detections": 3,
-    "avg_confidence": 75.1,
-    "confidence_grade": "Buena"
-  }
-}
-```
-
----
-
-## 📐 Métricas de evaluación
-
-### Sin ground truth (automático)
-
-| Métrica           | Descripción                                      |
-|-------------------|--------------------------------------------------|
-| Confianza promedio| Media de los scores de confianza de YOLO         |
-| Confianza máx/mín | Rango de confianza en la imagen                  |
-| Calificación      | Excelente / Buena / Aceptable / Baja             |
-
-### Con ground truth (manual)
-
-| Métrica    | Fórmula                                      |
-|------------|----------------------------------------------|
-| Precision  | TP / (TP + FP)                               |
-| Recall     | TP / (TP + FN)                               |
-| F1-Score   | 2 × (P × R) / (P + R)                       |
-| IoU        | Intersección / Unión de bounding boxes       |
-
-El umbral de IoU por defecto es **0.50** (estándar COCO).
-
----
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -229,65 +166,5 @@ El umbral de IoU por defecto es **0.50** (estándar COCO).
 
 ---
 
-## 🐛 Solución de problemas frecuentes
 
-**El servidor no inicia**
-```
-ModuleNotFoundError: No module named 'flask'
-```
-→ Asegúrate de haber activado el entorno virtual y corrido `pip install -r requirements.txt`.
-
----
-
-**La cámara no se activa**
-```
-NotAllowedError: Permission denied
-```
-→ En Chrome/Edge ve a `Configuración → Privacidad → Cámara` y permite el acceso.
-Si abres el HTML como archivo local (`file://`), algunos navegadores bloquean la cámara;
-sirve el frontend con un servidor local:
-```bash
-cd frontend
-python -m http.server 8080
-# Luego abre: http://localhost:8080
-```
-
----
-
-**El modelo no descarga automáticamente**
-
-Descárgalo manualmente y colócalo en `backend/models/`:
-```bash
-# Desde Python
-from ultralytics import YOLO
-YOLO('yolov8n.pt')   # descarga y cachea el modelo
-```
-
----
-
-**CORS error en el navegador**
-
-Asegúrate de que el backend esté corriendo en `http://localhost:5000` y que
-`flask-cors` esté instalado. El archivo `app.py` ya tiene `CORS(app)` configurado.
-
----
-
-## 👥 Autores
-
-Proyecto universitario desarrollado para el curso de **Ingeniería de Sistemas**
-en la **Universidad César Vallejo**, sede __________, 2026.
-
-| Nombre         | Rol                     |
-|----------------|-------------------------|
-| ______________ | Desarrollo backend      |
-| ______________ | Desarrollo frontend     |
-| ______________ | Evaluación y dataset    |
-
-**Docente asesor:** ______________________________
-
----
-
-## 📄 Licencia
-
-Proyecto académico — Universidad César Vallejo 2026.
-Uso exclusivo educativo y de investigación.
+pip install -r requirements.txt
