@@ -1,0 +1,214 @@
+/* ============================================================
+   imagen.css  —  Página Detección por Imagen
+   Sistema Inteligente de Visión Artificial · UCV 2026
+   ============================================================ */
+
+/* ── Layout principal ──────────────────────────────────────── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+.page-header__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.page-header__info {}
+
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page-header__subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+/* ── Columnas ──────────────────────────────────────────────── */
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 24px 32px;
+  min-height: calc(100vh - 60px - 65px);
+  align-items: start;
+}
+
+/* ── Panel izquierdo: subir imagen ─────────────────────────── */
+.upload-panel {}
+
+/* Drop zone */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 260px;
+  border: 1.5px dashed var(--border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-surface);
+  text-align: center;
+  padding: 32px;
+}
+
+.dropzone:hover,
+.dropzone.drag-over {
+  border-color: var(--accent-blue);
+  background: rgba(59,130,246,0.04);
+}
+
+.dropzone__icon {
+  width: 48px; height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--accent-blue-g);
+  border: 1px solid rgba(59,130,246,0.25);
+  display: grid;
+  place-items: center;
+  color: var(--accent-blue);
+  transition: var(--transition);
+}
+
+.dropzone__icon svg { width: 22px; height: 22px; }
+
+.dropzone:hover .dropzone__icon {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59,130,246,0.20);
+}
+
+.dropzone__title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dropzone__hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.dropzone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Preview de imagen seleccionada */
+.dropzone--preview {
+  border-style: solid;
+  border-color: rgba(59,130,246,0.35);
+  padding: 0;
+}
+
+.dropzone--preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 320px;
+}
+
+/* ── Configuración ─────────────────────────────────────────── */
+.config-section {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Botón analizar ────────────────────────────────────────── */
+.btn-analyze {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: var(--radius-md);
+  background: var(--accent-blue);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-analyze:hover:not(:disabled) {
+  background: var(--accent-blue-d);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59,130,246,0.35);
+}
+
+.btn-analyze:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-analyze svg { width: 16px; height: 16px; }
+
+/* ── Panel derecho: resultados ─────────────────────────────── */
+.results-panel {}
+
+/* Imagen anotada */
+.result-image-wrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-surface);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-image-wrap img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 320px;
+  display: block;
+}
+
+/* Lista de detecciones */
+.detections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Color por confianza */
+.conf-high   { background: rgba(34,197,94,0.15); color: #4ade80; }
+.conf-medium { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.conf-low    { background: rgba(239,68,68,0.15);  color: #f87171; }
+
+.bar-high   { background: #4ade80; }
+.bar-medium { background: #fbbf24; }
+.bar-low    { background: #f87171; }
+
+/* ── Métricas ──────────────────────────────────────────────── */
+.metrics-section {
+  margin-top: 16px;
+}
+
+/* Acento azul para métricas de imagen */
+.metric-chip--blue .metric-chip__value { color: var(--accent-blue); }

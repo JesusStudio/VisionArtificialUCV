@@ -1,0 +1,36 @@
+{
+    "filename": "dd4d38afd0c04b5dbebf619de49f1868.png",
+    "detections": [
+        {
+            "label": "stop sign",
+            "confidence": 33.61,
+            "bbox": {
+                "x1": 177,
+                "y1": 153,
+                "x2": 481,
+                "y2": 840
+            }
+        },
+        {
+            "label": "stop sign",
+            "confidence": 30.95,
+            "bbox": {
+                "x1": 178,
+                "y1": 138,
+                "x2": 819,
+                "y2": 829
+            }
+        }
+    ],
+    "metrics": {
+        "total_detections": 2,
+        "unique_classes": 1,
+        "class_counts": {
+            "stop sign": 2
+        },
+        "avg_confidence": 32.28,
+        "max_confidence": 33.61,
+        "min_confidence": 30.95,
+        "confidence_grade": "Baja"
+    }
+}

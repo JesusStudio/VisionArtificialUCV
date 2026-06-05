@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detección por Imagen · UCV 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/imagen.css" />
+</head>
+<body class="imagen-page">
+
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="navbar__brand">
+      <div class="navbar__brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+      <div>
+        <div>Universidad César Vallejo</div>
+        <div class="navbar__subtitle">Ingeniería de Sistemas</div>
+      </div>
+    </div>
+    <div class="navbar__badge">
+      <span class="navbar__badge-dot"></span>
+      Proyecto Universitario 2026
+    </div>
+  </nav>
+
+  <!-- ── Page header ─────────────────────────────────────────── -->
+  <div class="page-header">
+    <div class="page-header__left">
+      <a href="index.html" class="btn-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Volver
+      </a>
+      <div class="page-header__info">
+        <div class="page-header__title">Detección de Objetos por Imagen</div>
+        <div class="page-header__subtitle">Carga una imagen y analiza los objetos detectados</div>
+      </div>
+    </div>
+    <span class="mode-badge mode-badge--blue">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <circle cx="9" cy="9" r="2"/>
+        <path d="m21 15-5-5L5 21"/>
+      </svg>
+      Modo: Imagen
+    </span>
+  </div>
+
+  <!-- ── Workspace ───────────────────────────────────────────── -->
+  <div class="workspace">
+
+    <!-- ── COLUMNA IZQUIERDA: subir imagen ─────────────────── -->
+    <div class="upload-panel anim-1">
+
+      <!-- Card: imagen a analizar -->
+      <div class="card">
+        <div class="card__header">
+          <span class="card__title">Imagen a analizar</span>
+          <button id="btnClearImage" class="btn-back" style="display:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+            Limpiar
+          </button>
+        </div>
+        <div class="card__body">
+
+          <!-- Drop zone -->
+          <div class="dropzone" id="dropzone">
+            <div class="dropzone__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <div class="dropzone__title">Seleccionar imagen</div>
+            <div class="dropzone__hint">
+              Haz clic para cargar una imagen desde tu dispositivo<br>
+              Formatos: JPG, PNG, WEBP
+            </div>
+            <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp" />
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Card: configuración -->
+      <div class="card" style="margin-top:16px;">
+        <div class="card__header">
+          <span class="card__title">Configuración</span>
+        </div>
+        <div class="card__body">
+          <div class="config-section">
+
+            <!-- Slider confianza -->
+            <div class="conf-slider-wrap">
+              <label>
+                Umbral de confianza
+                <span id="confValue">25%</span>
+              </label>
+              <input type="range" id="confSlider" min="1" max="95" value="25"
+                     style="accent-color: var(--accent-blue);" />
+            </div>
+
+            <!-- Botón analizar -->
+            <button class="btn-analyze" id="btnAnalyze" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.35-4.35"/>
+              </svg>
+              <span id="btnAnalyzeText">Analizar Imagen</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.upload-panel -->
+
+    <!-- ── COLUMNA DERECHA: resultados ─────────────────────── -->
+    <div class="results-panel anim-2">
+
+      <!-- Card: imagen anotada -->
+      <div class="card">
+        <div class="card__header">
+          <span class="card__title">Resultados del análisis</span>
+          <span id="totalBadge" style="display:none;"
+                class="mode-badge mode-badge--blue" id="totalBadge">
+            <span id="totalCount">0</span> objetos
+          </span>
+        </div>
+        <div class="card__body" style="padding:0;">
+
+          <!-- Estado vacío -->
+          <div class="empty-state" id="emptyResult">
+            <div class="empty-state__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <p>Los objetos detectados aparecerán aquí después del análisis</p>
+          </div>
+
+          <!-- Imagen anotada (oculta hasta analizar) -->
+          <div class="result-image-wrap" id="resultImageWrap" style="display:none;">
+            <img id="resultImage" src="" alt="Imagen analizada" />
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Card: objetos detectados -->
+      <div class="card" style="margin-top:16px;" id="detectionsCard">
+        <div class="card__header">
+          <span class="card__title">Objetos detectados</span>
+        </div>
+        <div class="card__body">
+          <div class="detections-list" id="detectionsList">
+            <div class="empty-state" style="padding:24px;">
+              <p>Sin detecciones aún</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: métricas -->
+      <div class="card" style="margin-top:16px;" id="metricsCard">
+        <div class="card__header">
+          <span class="card__title">Métricas de precisión</span>
+        </div>
+        <div class="card__body">
+          <div class="metrics-row" id="metricsRow">
+            <div class="metric-chip metric-chip--blue">
+              <div class="metric-chip__value" id="mTotal">—</div>
+              <div class="metric-chip__label">Detecciones</div>
+            </div>
+            <div class="metric-chip metric-chip--blue">
+              <div class="metric-chip__value" id="mAvgConf">—</div>
+              <div class="metric-chip__label">Conf. promedio</div>
+            </div>
+            <div class="metric-chip metric-chip--blue">
+              <div class="metric-chip__value" id="mGrade">—</div>
+              <div class="metric-chip__label">Calificación</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.results-panel -->
+
+  </div>
+  <!-- /.workspace -->
+
+  <!-- Toast -->
+  <div class="toast" id="toast" style="display:none;"></div>
+
+  <script src="js/imagen.js"></script>
+</body>
+</html>

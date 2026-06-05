@@ -1,0 +1,67 @@
+{
+    "filename": "5dcab4f9518343d3b03314f40e361511.png",
+    "detections": [
+        {
+            "label": "person",
+            "confidence": 84.55,
+            "bbox": {
+                "x1": 473,
+                "y1": 159,
+                "x2": 740,
+                "y2": 488
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 83.44,
+            "bbox": {
+                "x1": 55,
+                "y1": 79,
+                "x2": 304,
+                "y2": 487
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 81.21,
+            "bbox": {
+                "x1": 285,
+                "y1": 16,
+                "x2": 518,
+                "y2": 488
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 47.17,
+            "bbox": {
+                "x1": 382,
+                "y1": 56,
+                "x2": 586,
+                "y2": 488
+            }
+        },
+        {
+            "label": "book",
+            "confidence": 28.43,
+            "bbox": {
+                "x1": 102,
+                "y1": 246,
+                "x2": 181,
+                "y2": 311
+            }
+        }
+    ],
+    "metrics": {
+        "total_detections": 5,
+        "unique_classes": 2,
+        "class_counts": {
+            "person": 4,
+            "book": 1
+        },
+        "avg_confidence": 64.96,
+        "max_confidence": 84.55,
+        "min_confidence": 28.43,
+        "confidence_grade": "Aceptable"
+    }
+}

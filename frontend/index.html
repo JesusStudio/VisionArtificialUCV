@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Inteligente de Visión Artificial · UCV 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="navbar__brand">
+      <div class="navbar__brand-icon">
+        <img src="assets/icons/ucv-logo.png" alt="UCV Logo">
+      </div>
+      <div>
+        <div>Universidad César Vallejo</div>
+        <div class="navbar__subtitle">Ingeniería de Sistemas</div>
+      </div>
+    </div>
+
+    <div class="navbar__badge">
+      <span class="navbar__badge-dot"></span>
+      Proyecto - Sistemas Inteligentes
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <main class="hero">
+    <div class="hero__content">
+
+      <!-- Pill -->
+      <div class="hero__pill anim-1">
+        <svg viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+            <path d="M3 18L5 8l7 5 7-5 2 10H3z"/>
+            <path d="M5 18h14"/>
+            <circle cx="5" cy="8" r="1"/>
+            <circle cx="12" cy="13" r="1"/>
+            <circle cx="19" cy="8" r="1"/>
+        </svg>
+        Grupo 6
+      </div>
+
+      <!-- Título -->
+      <h1 class="hero__title anim-2">
+        Sistema Inteligente de<br>
+        <em>Visión Artificial</em>
+      </h1>
+
+      <!-- Descripción -->
+      <p class="hero__desc anim-3">
+        Detección de objetos básicos mediante imágenes y cámara en tiempo
+        real con evaluación de precisión en imágenes digitales.
+      </p>
+
+      <!-- Stats -->
+        <div class="stats-bar anim-3">
+            <div class="stat-item">
+                <span class="stat-item__value">Jesus</span>
+                <span class="stat-item__label">Arica</span>
+            </div>
+        
+            <div class="stat-divider"></div>
+
+            <div class="stat-item">
+                <span class="stat-item__value">Jean Pool</span>  
+                <span class="stat-item__label">Maza</span>
+            </div>
+
+            <div class="stat-divider"></div>
+        
+            <div class="stat-item">
+                <span class="stat-item__value">Ezequiel</span>
+                <span class="stat-item__label">Yunca</span>
+            </div>
+
+            <div class="stat-divider"></div>
+
+            <div class="stat-item">
+                <span class="stat-item__value">Juan</span>
+                <span class="stat-item__label">Rojas</span>
+            </div>
+        </div>
+
+      <!-- Cards de modo -->
+      <div class="hero__cards anim-4">
+
+        <!-- Detección por Imagen -->
+        <a href="deteccion-imagen.html" class="mode-card mode-card--image">
+          <div class="mode-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <circle cx="9" cy="9" r="2"/>
+              <path d="m21 15-5-5L5 21"/>
+            </svg>
+          </div>
+
+          <div>
+            <div class="mode-card__name">Detección mediante Imagen</div>
+            <div class="mode-card__desc" style="margin-top:6px;">
+              Carga una imagen desde tu dispositivo y analiza los objetos
+              detectados con porcentajes de confianza.
+            </div>
+          </div>
+
+          <div class="mode-card__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Detección por Cámara -->
+        <a href="deteccion-camara.html" class="mode-card mode-card--camera">
+          <div class="mode-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 7 16 12l7 5V7z"/>
+              <rect x="1" y="5" width="15" height="14" rx="2"/>
+            </svg>
+          </div>
+
+          <div>
+            <div class="mode-card__name">Detección mediante Cámara</div>
+            <div class="mode-card__desc" style="margin-top:6px;">
+              Activa tu cámara web y detecta objetos en tiempo real con
+              resultados dinámicos e instantáneos.
+            </div>
+          </div>
+
+          <div class="mode-card__arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+
+      </div><!-- /.hero__cards -->
+
+    </div><!-- /.hero__content -->
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="hero__footer">
+    Implementación de sistema inteligente de visión artificial para la detección de objetos básicos
+    · Universidad César Vallejo (UCV) · 2026
+  </footer>
+
+  <script src="js/home.js"></script>
+</body>
+</html>
