@@ -1,0 +1,176 @@
+{
+    "filename": "343e1c426122419b89144385198c4177.png",
+    "detections": [
+        {
+            "label": "person",
+            "confidence": 93.09,
+            "bbox": {
+                "x1": 140,
+                "y1": 13,
+                "x2": 294,
+                "y2": 149
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 92.6,
+            "bbox": {
+                "x1": 140,
+                "y1": 317,
+                "x2": 292,
+                "y2": 456
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 92.48,
+            "bbox": {
+                "x1": 0,
+                "y1": 319,
+                "x2": 136,
+                "y2": 456
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 92.27,
+            "bbox": {
+                "x1": 142,
+                "y1": 162,
+                "x2": 294,
+                "y2": 302
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 92.25,
+            "bbox": {
+                "x1": 449,
+                "y1": 315,
+                "x2": 595,
+                "y2": 456
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 91.96,
+            "bbox": {
+                "x1": 296,
+                "y1": 318,
+                "x2": 444,
+                "y2": 456
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 91.67,
+            "bbox": {
+                "x1": 0,
+                "y1": 165,
+                "x2": 138,
+                "y2": 302
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 91.17,
+            "bbox": {
+                "x1": 294,
+                "y1": 167,
+                "x2": 432,
+                "y2": 303
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 90.94,
+            "bbox": {
+                "x1": 450,
+                "y1": 12,
+                "x2": 596,
+                "y2": 149
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 90.89,
+            "bbox": {
+                "x1": 449,
+                "y1": 166,
+                "x2": 595,
+                "y2": 301
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 90.64,
+            "bbox": {
+                "x1": 455,
+                "y1": 468,
+                "x2": 596,
+                "y2": 599
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 90.24,
+            "bbox": {
+                "x1": 297,
+                "y1": 472,
+                "x2": 446,
+                "y2": 599
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 90.22,
+            "bbox": {
+                "x1": 303,
+                "y1": 12,
+                "x2": 440,
+                "y2": 148
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 89.59,
+            "bbox": {
+                "x1": 0,
+                "y1": 476,
+                "x2": 133,
+                "y2": 599
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 89.16,
+            "bbox": {
+                "x1": 142,
+                "y1": 474,
+                "x2": 288,
+                "y2": 599
+            }
+        },
+        {
+            "label": "person",
+            "confidence": 77.37,
+            "bbox": {
+                "x1": 3,
+                "y1": 14,
+                "x2": 138,
+                "y2": 146
+            }
+        }
+    ],
+    "metrics": {
+        "total_detections": 16,
+        "unique_classes": 1,
+        "class_counts": {
+            "person": 16
+        },
+        "avg_confidence": 90.41,
+        "max_confidence": 93.09,
+        "min_confidence": 77.37,
+        "confidence_grade": "Excelente"
+    }
+}
